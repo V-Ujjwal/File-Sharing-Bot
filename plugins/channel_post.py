@@ -19,8 +19,6 @@ async def channel_post(client: Client, message: Message):
     except FloodWait as e:
         await asyncio.sleep(e.x)
         post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
-        await asyncio.sleep(20)
-        await post_message.delete()
     except Exception as e:
         print(e)
         await reply_text.edit_text("Something went Wrong..!")
